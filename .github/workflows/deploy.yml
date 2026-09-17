@@ -1,1 +1,18 @@
-test
+name: Deploy to cPanel
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: zeaayiti.com
+          port: 7822
+          username: zeaayiti
+          key: ${{ secrets.CPANEL_SSH_KEY }}
+          script: |
+            cd /home/zeaayiti/testme.zeaayiti.com
+            git pull origin main
