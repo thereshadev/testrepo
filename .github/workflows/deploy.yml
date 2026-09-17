@@ -14,5 +14,5 @@ jobs:
           username: zeaayiti
           key: ${{ secrets.CPANEL_SSH_KEY }}
           script: |
-            cd /home/zeaayiti/testme.zeaayiti.com
+            cd /home/zeaayiti/testme.zeaayiti.com/test1
             git pull origin main
