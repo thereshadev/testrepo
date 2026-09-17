@@ -1,50 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sample Page</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Web Page with CSS & JS</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
+        /* Basic CSS Reset & Layout */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
 
-      .card {
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        text-align: center;
-      }
+        header, main, footer {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
 
-      button {
-        background: #007bff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-      }
+        nav a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Gradient Box Styles */
+        .gradient-box {
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            /* Multi-color linear gradient */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            /* Smooth background animation loop */
+            animation: gradientAnimation 10s ease infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* JavaScript Interactive Component Styles */
+        .interactive-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .interactive-btn:hover {
+            background-color: #555;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e2f0cb;
+            border-left: 5px solid #b5e2b4;
+            border-radius: 4px;
+        }
     </style>
-  </head>
-  <body>
-    <div class="card">
-      <h1>Hello!</h1>
-      <p id="message">Eke travay sa ap resi solved? m komanse bouke My name is lORVENSLKHY DUPERVAL I AM THERE.</p>
-      <button onclick="changeText()">Click Me.  mwen remake travay sa difisisl</button>
-    </div>
+</head>
+<body>
 
+    <header>
+        <h1>Enhanced HTML Template</h1>
+        <nav>
+            <a href="#about">About</a> | 
+            <a href="#demo">Interactive Features</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>Modern Styling Added</h2>
+            <p>This document now contains embedded **CSS** for cleaner layout styling and an **animated CSS gradient box** below.</p>
+        </section>
+
+        <!-- CSS Gradient Box Section -->
+        <section id="demo">
+            <div class="gradient-box">
+                ✨ Dynamic CSS Gradient Feature Box ✨
+            </div>
+
+            <!-- JavaScript Trigger Section -->
+            <h3>JavaScript Interaction</h3>
+            <button class="interactive-btn" id="toggleBtn">Click Me!</button>
+            <div class="hidden-message" id="secretMessage">
+                🎉 <strong>Success!</strong> The JavaScript logic successfully tracked your click event and toggled this message layout!
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sample Company. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript logic -->
     <script>
-      function changeText() {
-        const message = document.getElementById('message');
-        message.textContent = 'JavaScript is working!';
-      }
+        // DOM Element Selectors
+        const toggleButton = document.getElementById('toggleBtn');
+        const secretMessage = document.getElementById('secretMessage');
+
+        // Event Listener to handle click
+        toggleButton.addEventListener('click', function() {
+            if (secretMessage.style.display === 'block') {
+                secretMessage.style.display = 'none';
+                toggleButton.textContent = 'Click Me!';
+            } else {
+                secretMessage.style.display = 'block';
+                toggleButton.textContent = 'Hide Message';
+            }
+        });
     </script>
-  </body>
+
+</body>
 </html>
